@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hydrantworks"
+version = "1.0.0"
+description = "Hydrant maintenance service for Trumbull County, Ohio — the codebase for Agentic Software Engineering labs."
+requires-python = ">=3.11"
+dependencies = ["fastapi>=0.115,<1", "uvicorn[standard]>=0.30", "pydantic>=2.7,<3"]
+
+[tool.setuptools]
+packages = ["hydrantworks", "hydrantworks.routers"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = [".", "tests"]
+filterwarnings = ["ignore:Using `httpx` with `starlette.testclient`"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+ignore = ["B008"]  # FastAPI's Depends()/Query() in defaults is the intended pattern
