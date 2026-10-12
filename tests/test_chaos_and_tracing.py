@@ -24,7 +24,7 @@ def test_chaos_empty_pages(make_client):
 
 
 def test_trace_id_is_generated_and_logged(make_client, tmp_path):
-    log = tmp_path / "requests.jsonl"
+    log = tmp_path / "logs" / "requests.jsonl"  # the folder does not exist yet
     c = make_client(request_log=log)
     r = c.get("/hydrants", headers=READ)
     tid = r.headers["X-Trace-Id"]

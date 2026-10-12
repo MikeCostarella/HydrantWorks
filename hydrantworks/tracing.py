@@ -49,5 +49,6 @@ class TracingMiddleware(BaseHTTPMiddleware):
             )
             log.info(line)
             if self.log_path:
+                self.log_path.parent.mkdir(parents=True, exist_ok=True)
                 with open(self.log_path, "a", encoding="utf-8") as f:
                     f.write(line + "\n")
