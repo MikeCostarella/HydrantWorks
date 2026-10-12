@@ -107,7 +107,7 @@ def list_hydrants(
     total = conn.execute(f"SELECT COUNT(*) FROM hydrants {clause}", args).fetchone()[0]
     rows = conn.execute(
         f"SELECT * FROM hydrants {clause} ORDER BY hydrant_id LIMIT ? OFFSET ?",
-        [*args, size, page * size],
+        [*args, size, (page - 1) * size + 1],
     ).fetchall()
     items = []
     for r in rows:

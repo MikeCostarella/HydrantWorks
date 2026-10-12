@@ -14,11 +14,13 @@ Labels: `bug`, `performance`, `flaky-test`, `feature`, `data-quality`,
 ### 1. Page 1 of the hydrant list doesn't start at the beginning
 `bug` `good-first-issue`
 
-> "I asked for `/hydrants?size=10` and the first hydrant id I got wasn't the
-> lowest one. Where did the first ten go?" — dispatcher
+> "I searched for the out-of-service hydrants in Lordstown. The response says
+> `total: 8`, but only 7 came back, and the one with the lowest id is never in
+> the list." — dispatcher
 
-**Done when:** page 1 starts with the first hydrant in id order, and a test
-shows pages 1 and 2 are consecutive with nothing skipped.
+**Done when:** a search returns every hydrant it counts, page 1 starts with the
+first hydrant in id order, and a test shows pages 1 and 2 are consecutive with
+nothing skipped.
 
 ### 2. Jurisdiction search is picky about capitals
 `bug` `good-first-issue`
